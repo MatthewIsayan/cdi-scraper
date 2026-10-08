@@ -1,8 +1,12 @@
-import json,re
+import json,re,argparse
 from pathlib import Path
 from lxml import html
 ROOT=Path(__file__).resolve().parents[1]
-CACHE=ROOT/'exports/first-ten-test'
+parser=argparse.ArgumentParser()
+parser.add_argument('--cache',default='first-ten-test')
+parser.add_argument('--summary',action='store_true')
+args=parser.parse_args()
+CACHE=ROOT/'exports'/args.cache
 def clean(s):return ' '.join(s.split())
 def table(tree,id):
     nodes=tree.xpath('//table[@id=$id]',id=id)
@@ -29,4 +33,8 @@ for entry in json.loads((CACHE/'source-rows.json').read_text()):
     results.append(entry)
 (CACHE/'facts.json').write_text(json.dumps(results,indent=2),encoding='utf-8')
 for x in results:
-    print(json.dumps({'license':x['input']['license_number'],**x.get('facts',{})},ensure_ascii=False))
+    facts=x.get('facts',{})
+    if args.summary:
+        facts={k:facts.get(k) for k in ['name','qualifications','agencies','orders']}
+        facts['insurers']=list(dict.fromkeys(r[0] for r in x.get('facts',{}).get('appointments',[])))
+    print(json.dumps({'license':x['input']['license_number'],'error':x['error'],**facts},ensure_ascii=False))

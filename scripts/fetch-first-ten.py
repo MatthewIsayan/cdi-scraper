@@ -1,15 +1,20 @@
-import csv, json, re, time, urllib.request
+import csv, json, re, time, urllib.request, argparse
 from pathlib import Path
 from datetime import datetime, timezone
 ROOT=Path(__file__).resolve().parents[1]
-CACHE=ROOT/'exports/first-ten-test'
+parser=argparse.ArgumentParser()
+parser.add_argument('--start',type=int,default=0)
+parser.add_argument('--count',type=int,default=10)
+parser.add_argument('--cache',default='first-ten-test')
+args=parser.parse_args()
+CACHE=ROOT/'exports'/args.cache
 CACHE.mkdir(parents=True,exist_ok=True)
 with (ROOT/'ROUND-1-BACKUP/cdi-agents.csv').open(encoding='utf-8-sig',newline='') as f:
     reader=csv.DictReader(f)
     rows=[]
     for i,row in enumerate(reader):
-        if i==10: break
-        rows.append(row)
+        if i>=args.start+args.count: break
+        if i>=args.start:rows.append(row)
 results=[]
 for i,row in enumerate(rows,1):
     error=''
