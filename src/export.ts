@@ -29,8 +29,8 @@ export function writeMasterCsv(db: DatabaseSync): string {
   const csv = `\uFEFF${lines.join("\r\n")}\r\n`;
   const directory = path.join(process.cwd(), "exports");
   mkdirSync(directory, { recursive: true });
-  const target = path.join(directory, "armenian-life-annuity-agents.csv");
-  const temporary = path.join(directory, "armenian-life-annuity-agents.csv.tmp");
+  const target = path.join(directory, "cdi-agents.csv");
+  const temporary = path.join(directory, "cdi-agents.csv.tmp");
   writeFileSync(temporary, csv, "utf8");
   try {
     renameSync(temporary, target);

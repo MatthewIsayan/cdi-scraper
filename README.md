@@ -1,8 +1,10 @@
-# Armenian Life and Annuity agent search
+# CDI agent scraper
 
-Pulls public California Department of Insurance "Find an Agent" results for Armenian-speaking Life and Annuity agents. Each search is limited to 5 miles. ZIP codes are spaced around 91506 so a single search does not run into the site's 300-row cap and miss people.
+Pulls public California Department of Insurance "Find an Agent" results. Each search is limited to 5 miles. ZIP codes are spaced around `centerZip` so a single search does not run into the site's 300-row cap and miss people.
 
-Agents are stored in `data/agents.db`. The same license is never inserted twice. `exports/armenian-life-annuity-agents.csv` is rewritten after every page of results, while the scrape is still running. `npm run export` writes that same file on demand.
+The checked-in `config.json` is a Life and Annuity search for Armenian-speaking agents around 91506. Change `insuranceType`, `language`, and `centerZip` for a different search.
+
+Agents are stored in `data/agents.db`. The same license is never inserted twice. `exports/cdi-agents.csv` is rewritten after every page of results, while the scrape is still running. `npm run export` writes that same file on demand.
 
 ## Setup
 
@@ -33,10 +35,13 @@ npm run status
 
 ## Settings
 
-Edit `config.json`.
+Edit `config.json`. These values are read when a run starts.
 
-- `coverageMiles` is how far from 91506 the grid reaches. Default is 15.
+- `centerZip` is the grid center. Current value is 91506.
+- `coverageMiles` is how far from that ZIP the grid reaches. Default is 15.
 - `gridSpacingMiles` is how far apart the ZIP codes are. Default is 4, with each search still set to 5 miles so the circles overlap.
+- `insuranceType` is the site's insurance code. Current value is `LIFE_ANU`.
+- `language` is the site's language code. Current value is `ARMN`.
 - `headless` stays false so the browser is visible.
 - `maxAttempts` is how many times one ZIP is tried before the run stops. Default is 3.
 
