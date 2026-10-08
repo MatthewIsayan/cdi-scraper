@@ -8,5 +8,6 @@
   "headless": false,
   "pageDelayMs": [3500, 7000],
   "zipDelayMs": [15000, 32000],
-  "typingDelayMs": [90, 190]
+  "typingDelayMs": [90, 190],
+  "maxAttempts": 3
 }

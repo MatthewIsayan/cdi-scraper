@@ -340,7 +340,7 @@ async function main(): Promise<void> {
       if (stopping) break;
 
       let attempt = 0;
-      while (attempt < 3 && !stopping) {
+      while (attempt < config.maxAttempts && !stopping) {
         attempt += 1;
         try {
           log(`Searching ${search.zip} ${search.city} (${search.distance_miles.toFixed(1)} mi)${attempt > 1 ? ` attempt ${attempt}` : ""}`);
@@ -356,9 +356,9 @@ async function main(): Promise<void> {
           );
           await page.screenshot({ path: path.join(process.cwd(), "logs", "last-error.png"), fullPage: true }).catch(() => undefined);
           markSearch(db, search.zip, { status: "error", error: message });
-          if (attempt >= 3) {
+          if (attempt >= config.maxAttempts) {
             giveUp = true;
-            log(`Stopping. ${search.zip} failed 3 times. Agents saved so far stay in the database and the CSV.`);
+            log(`Stopping. ${search.zip} failed ${config.maxAttempts} times. Agents saved so far stay in the database and the CSV.`);
             break;
           }
           await humanPause([20000, 40000]);

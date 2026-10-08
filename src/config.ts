@@ -12,6 +12,7 @@ export type AppConfig = {
   pageDelayMs: [number, number];
   zipDelayMs: [number, number];
   typingDelayMs: [number, number];
+  maxAttempts: number;
   maxZips?: number;
   maxPages?: number;
   startUrl: string;
@@ -67,6 +68,7 @@ export function loadConfig(): AppConfig {
     pageDelayMs: pair(file.pageDelayMs, [3500, 7000], "pageDelayMs"),
     zipDelayMs: pair(file.zipDelayMs, [15000, 32000], "zipDelayMs"),
     typingDelayMs: pair(file.typingDelayMs, [90, 190], "typingDelayMs"),
+    maxAttempts: file.maxAttempts ?? 3,
     maxZips: numberArg("--max-zips", "MAX_ZIPS"),
     maxPages: numberArg("--max-pages", "MAX_PAGES"),
     startUrl: "https://interactive.web.insurance.ca.gov/apex_extprd/f?p=119:1::::::",
@@ -80,6 +82,9 @@ export function loadConfig(): AppConfig {
   }
   if (config.gridSpacingMiles < 0 || config.gridSpacingMiles > 20) {
     throw new Error("gridSpacingMiles must be between 0 and 20");
+  }
+  if (!Number.isInteger(config.maxAttempts) || config.maxAttempts < 1) {
+    throw new Error("maxAttempts must be a whole number of at least 1");
   }
   return config;
 }

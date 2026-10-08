@@ -22,7 +22,7 @@ npm run scrape
 
 Leave the browser window alone while it works. It types the ZIP, pauses, and clicks Next the way a person would. Closing the window or pressing Ctrl+C is safe: finished ZIP codes stay finished, and the next run continues the rest.
 
-If the Department of Insurance session expires, the scraper opens a fresh search page and retries that ZIP. Three failed attempts on the same ZIP stop the run. Start it again and that ZIP is picked up first.
+If the Department of Insurance session expires, the scraper opens a fresh search page and retries that ZIP. After `maxAttempts` failures on the same ZIP, the run stops. Start it again and that ZIP is picked up first.
 
 In a second terminal, at any time:
 
@@ -38,6 +38,7 @@ Edit `config.json`.
 - `coverageMiles` is how far from 91506 the grid reaches. Default is 15.
 - `gridSpacingMiles` is how far apart the ZIP codes are. Default is 4, with each search still set to 5 miles so the circles overlap.
 - `headless` stays false so the browser is visible.
+- `maxAttempts` is how many times one ZIP is tried before the run stops. Default is 3.
 
 Useful test flags:
 
