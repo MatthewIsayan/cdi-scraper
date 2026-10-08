@@ -1,0 +1,10 @@
+import { writeFileSync } from 'node:fs';
+import { buildGrid } from './grid.js';
+import { DatabaseSync } from 'node:sqlite';
+const points = buildGrid('91506', 50, 4);
+const db = new DatabaseSync('data/agents.db');
+const old = new Set((db.prepare('SELECT zip FROM searches').all() as {zip:string}[]).map(r=>r.zip));
+const csv = ['zip,city,distance_miles,previously_queued', ...points.map(p=>`${p.zip},${p.city},${p.distanceMiles.toFixed(2)},${old.has(p.zip)}`)].join('\n');
+writeFileSync('exports/search-zips-50-miles.csv', csv + '\n');
+console.log(JSON.stringify({total:points.length, additional:points.filter(p=>!old.has(p.zip)).length}));
+db.close();

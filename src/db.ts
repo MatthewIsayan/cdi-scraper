@@ -66,6 +66,17 @@ export function openDb(): DatabaseSync {
       zip TEXT NOT NULL,
       PRIMARY KEY (license_number, zip)
     );
+    CREATE TABLE IF NOT EXISTS cap_recovery (
+      parent_zip TEXT NOT NULL,
+      child_zip TEXT NOT NULL,
+      depth INTEGER NOT NULL,
+      created_at TEXT NOT NULL,
+      PRIMARY KEY (parent_zip, child_zip)
+    );
+    CREATE TABLE IF NOT EXISTS search_effort (
+      zip TEXT PRIMARY KEY,
+      seconds REAL NOT NULL DEFAULT 0
+    );
   `);
   return db;
 }
@@ -95,7 +106,8 @@ export function syncGrid(db: DatabaseSync, points: GridPoint[]): void {
     }
     const pending = db.prepare(`SELECT zip FROM searches WHERE status = 'pending'`).all() as { zip: string }[];
     for (const row of pending) {
-      if (!keep.has(row.zip)) removePending.run(row.zip);
+      const recovery = db.prepare('SELECT 1 FROM cap_recovery WHERE child_zip = ?').get(row.zip);
+      if (!keep.has(row.zip) && !recovery) removePending.run(row.zip);
     }
     db.exec("COMMIT");
   } catch (error) {

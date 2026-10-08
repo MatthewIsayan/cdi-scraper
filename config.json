@@ -1,13 +1,13 @@
 {
   "centerZip": "91506",
-  "coverageMiles": 15,
+  "coverageMiles": 50,
   "gridSpacingMiles": 4,
   "insuranceType": "LIFE_ANU",
   "language": "ARMN",
   "distanceValue": "8.0467",
-  "headless": false,
-  "pageDelayMs": [3500, 7000],
-  "zipDelayMs": [15000, 32000],
+  "headless": true,
+  "pageDelayMs": [2000, 4000],
+  "zipDelayMs": [5000, 10000],
   "typingDelayMs": [90, 190],
   "maxAttempts": 3
 }

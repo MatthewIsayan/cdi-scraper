@@ -4,6 +4,8 @@ const db = openDb();
 try {
   const status = statusCounts(db);
   console.log(`Unique agents saved: ${status.agents}`);
+  const recovery = db.prepare('SELECT COUNT(DISTINCT child_zip) AS n FROM cap_recovery').get() as {n:number};
+  console.log(`Additional ZIPs queued for cap recovery: ${recovery.n}`);
   if (status.byStatus.length === 0) {
     console.log("No ZIP searches queued yet. Run npm run scrape or npm run grid.");
   } else {

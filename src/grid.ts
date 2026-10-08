@@ -26,7 +26,7 @@ export type GridPoint = {
   distanceMiles: number;
 };
 
-function milesBetween(
+export function milesBetween(
   a: { latitude: number; longitude: number },
   b: { latitude: number; longitude: number },
 ): number {
