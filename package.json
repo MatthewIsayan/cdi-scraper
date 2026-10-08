@@ -1,0 +1,22 @@
+{
+  "name": "cdi-armenian-agents",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/scrape.ts",
+    "export": "node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/export.ts",
+    "status": "node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/status.ts",
+    "grid": "node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/grid.ts"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "zipcodes": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
