@@ -14,6 +14,7 @@ import {
 } from "./db.js";
 import { writeMasterCsv } from "./export.js";
 import { buildGrid } from "./grid.js";
+import { queueCapRecovery, writeRecoveryReport } from './cap-recovery.js';
 import { humanPause, log, randomBetween, sleep } from "./human.js";
 
 type Pagination = { start: number; end: number; total: number; text: string };
@@ -88,12 +89,16 @@ const readSnapshotFn = new Function(`
     .filter((agent) => agent && agent.name);
 
   const report = document.querySelector("#myreport")?.textContent || "";
+  const pageText = (document.body?.innerText || "").replace(/\\s+/g, " ");
   const alert = Array.from(document.querySelectorAll(".t-Alert-content, .a-Form-error"))
     .map((node) => (node.textContent || "").trim())
     .filter(Boolean)
     .join(" ");
 
-  return { pagination, agents, noData: /no data found/i.test(report), alert };
+  const noData = agents.length === 0 && (
+    /no data found/i.test(report) || /no agents were found within your search area/i.test(pageText)
+  );
+  return { pagination, agents, noData, alert };
 `) as () => PageSnapshot;
 
 const markWaitingFn = new Function(`document.documentElement.dataset.cdiWait = "1";`) as () => void;
@@ -111,15 +116,28 @@ class SessionExpiredError extends Error {
 }
 
 const nextButtonStateFn = new Function(`
+  const label = document.querySelector(".a-IRR-pagination-label")?.textContent || "";
+  const range = label.match(/(\\d+)\\s*-\\s*(\\d+)\\s+of\\s+(\\d+)/i);
+  if (range && Number(range[2]) < Number(range[3])) {
+    return "ok:button[aria-label=\\"Next\\"]";
+  }
+  const selected = Array.from(document.querySelectorAll("#resultshub a"))
+    .find((link) => (link.textContent || "").includes("✓"));
+  const selectedStart = Number((selected?.textContent || "1").match(/\\d+/)?.[0] || 1);
+  for (const selector of ["#thru200 span", "#thru300 span"]) {
+    const link = document.querySelector(selector);
+    const text = (link?.textContent || "").replace(/\\s+/g, " ").trim();
+    const start = Number(text.match(/\\d+/)?.[0] || 0);
+    if (link && text && start > selectedStart && !text.includes("✓")) return "ok:" + selector;
+  }
   const button = Array.from(document.querySelectorAll("button")).find((candidate) => {
     return candidate.getAttribute("aria-label") === "Next" || candidate.title === "Next";
   });
   if (!button) return "missing";
-  const disabled = button.disabled
-    || button.getAttribute("aria-disabled") === "true"
+  const disabled = button.disabled || button.getAttribute("aria-disabled") === "true"
     || (button.closest("li") && button.closest("li").classList.contains("is-disabled"));
-  return disabled ? "disabled" : "ok";
-`) as () => "missing" | "disabled" | "ok";
+  return disabled ? "disabled" : "ok:button[aria-label=\\"Next\\"]";
+`) as () => string;
 
 async function readSnapshot(page: Page): Promise<PageSnapshot> {
   return page.evaluate(readSnapshotFn);
@@ -138,6 +156,7 @@ function isSessionError(error: unknown): boolean {
 
 async function openSearch(page: Page, config: AppConfig): Promise<void> {
   await page.goto(config.startUrl, { waitUntil: "domcontentloaded" });
+  await assertSession(page);
   await page.waitForSelector("#P1_INSURANCE_TYPE");
   await humanPause([800, 1600]);
 }
@@ -220,15 +239,26 @@ async function searchZip(page: Page, zip: string, config: AppConfig): Promise<Pa
 
 async function clickNext(page: Page): Promise<boolean> {
   const state = await page.evaluate(nextButtonStateFn);
-  if (state !== "ok") return false;
+  if (!state.startsWith("ok:")) return false;
+  const selector = state.slice(3);
 
   const before = await readSnapshot(page);
-  await clickButton(page, 'button[aria-label="Next"]');
+  const eventName = selector.includes("thru200")
+    ? "DA100TO200Event"
+    : selector.includes("thru300")
+      ? "DA200TO300Event"
+      : null;
+  if (eventName) {
+    await page.evaluate((event) => (window as any).jQuery?.event.trigger(event), eventName);
+  } else {
+    await clickButton(page, selector);
+  }
   const deadline = Date.now() + 35_000;
   while (Date.now() < deadline) {
     await sleep(350);
     await assertSession(page);
-    const after = await readSnapshot(page);
+    const after = await readSnapshot(page).catch(() => null);
+    if (!after) continue;
     const pageChanged = after.pagination?.text && after.pagination.text !== before.pagination?.text;
     const agentChanged = after.agents[0]?.licenseNumber && after.agents[0].licenseNumber !== before.agents[0]?.licenseNumber;
     if (pageChanged || agentChanged) return true;
@@ -271,20 +301,15 @@ async function scrapeZip(page: Page, zip: string, config: AppConfig, db: ReturnT
       log(`CSV update failed and will be retried on the next page: ${error instanceof Error ? error.message : String(error)}`);
     }
 
-    const reachedEnd = snapshot.pagination.end >= snapshot.pagination.total;
     const reachedTestCap = config.maxPages != null && pagesDone >= config.maxPages;
-    if (reachedEnd || reachedTestCap) {
-      const truncated = snapshot.pagination.total >= 300 && reachedEnd;
+    if (reachedTestCap) {
       markSearch(db, zip, {
-        status: reachedTestCap && !reachedEnd ? "in_progress" : truncated ? "truncated" : "complete",
+        status: "in_progress",
         totalReported: snapshot.pagination.total,
         pagesDone,
         agentsSeen,
-        error: truncated ? "Site reported 300 or more, so this 5-mile search may be cut off" : null,
+        error: null,
       });
-      if (truncated) {
-        log(`${zip} hit the 300-result cap. Those rows are saved, and this ZIP is marked truncated.`);
-      }
       return;
     }
 
@@ -292,13 +317,15 @@ async function scrapeZip(page: Page, zip: string, config: AppConfig, db: ReturnT
     if (stopping) return;
     const moved = await clickNext(page);
     if (!moved) {
+      const truncated = agentsSeen >= 300;
       markSearch(db, zip, {
-        status: "complete",
+        status: truncated ? "truncated" : "complete",
         totalReported: snapshot.pagination.total,
         pagesDone,
         agentsSeen,
-        error: null,
+        error: truncated ? "Site ended after 300 results; additional results may be unavailable" : null,
       });
+      if (truncated) log(`${zip} reached the site's 300-result maximum.`);
       return;
     }
     await humanPause([700, 1400]);
@@ -312,7 +339,9 @@ async function main(): Promise<void> {
   const db = openDb();
   const grid = buildGrid(config.centerZip, config.coverageMiles, config.gridSpacingMiles);
   syncGrid(db, grid);
+  queueCapRecovery(db, config.centerZip, config.coverageMiles);
   const queue = nextSearches(db, config.maxZips);
+  const queued = new Set(queue.map(search => search.zip));
 
   log(
     `Grid has ${grid.length} ZIP codes within ${config.coverageMiles} miles of ${config.centerZip}. ${queue.length} still need a search.`,
@@ -327,6 +356,7 @@ async function main(): Promise<void> {
   mkdirSync(path.join(process.cwd(), "logs"), { recursive: true });
   const { context, page } = await launchBrowser(config);
   let giveUp = false;
+  let unresolvedCaps = 0;
   try {
     await openSearch(page, config);
     let first = true;
@@ -344,7 +374,22 @@ async function main(): Promise<void> {
         attempt += 1;
         try {
           log(`Searching ${search.zip} ${search.city} (${search.distance_miles.toFixed(1)} mi)${attempt > 1 ? ` attempt ${attempt}` : ""}`);
-          await scrapeZip(page, search.zip, config, db);
+          const started = Date.now();
+          try {
+            await scrapeZip(page, search.zip, config, db);
+          } finally {
+            db.prepare('INSERT INTO search_effort(zip,seconds) VALUES(?,?) ON CONFLICT(zip) DO UPDATE SET seconds=seconds+excluded.seconds')
+              .run(search.zip,(Date.now()-started)/1000);
+            writeRecoveryReport(db);
+          }
+          const added = queueCapRecovery(db, config.centerZip, config.coverageMiles);
+          writeRecoveryReport(db);
+          if (added) log(`Queued ${added} nearby ZIP searches for capped areas; capped searches remain unresolved.`);
+          if (config.maxZips == null) {
+            for (const followup of nextSearches(db)) {
+              if (!queued.has(followup.zip)) { queue.push(followup); queued.add(followup.zip); }
+            }
+          }
           break;
         } catch (error) {
           const message = error instanceof Error ? error.message : String(error);
@@ -358,7 +403,7 @@ async function main(): Promise<void> {
           markSearch(db, search.zip, { status: "error", error: message });
           if (attempt >= config.maxAttempts) {
             giveUp = true;
-            log(`Stopping. ${search.zip} failed ${config.maxAttempts} times. Agents saved so far stay in the database and the CSV.`);
+            log(`Stopping. ${search.zip} failed ${config.maxAttempts} times. Saved agents are preserved.`);
             break;
           }
           await humanPause([20000, 40000]);
@@ -374,15 +419,16 @@ async function main(): Promise<void> {
       log(`Final CSV export failed: ${error instanceof Error ? error.message : String(error)}`);
     }
     await context.close();
+    unresolvedCaps = (db.prepare("SELECT COUNT(*) AS n FROM searches WHERE status='truncated'").get() as {n:number}).n;
     db.close();
   }
   if (giveUp) {
-    log("Run npm run scrape again to continue. The ZIP that failed will be tried again.");
+    log("Run npm run scrape again to continue unfinished searches.");
     process.exitCode = 1;
   } else if (stopping) {
     log("Stopped. Run the same command again and it will continue unfinished ZIP codes.");
   } else {
-    log("Finished the queued ZIP codes.");
+    log(`Finished the queued ZIP codes. ${unresolvedCaps} capped searches remain potentially incomplete.`);
   }
 }
 

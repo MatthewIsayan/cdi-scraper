@@ -1,0 +1,129 @@
+zip,city,distance_miles,previously_queued
+91506,Burbank,0.00,true
+91353,Sun Valley,4.16,true
+91204,Glendale,4.30,true
+91604,Studio City,4.37,true
+90028,Los Angeles,4.92,true
+91208,Glendale,5.23,true
+91043,Tujunga,5.90,true
+91404,Van Nuys,7.27,true
+90209,Beverly Hills,8.09,true
+90090,Dodgertown,8.28,true
+90042,Los Angeles,8.43,true
+91333,Pacoima,8.64,true
+91103,Pasadena,9.61,true
+90018,Los Angeles,9.87,true
+91316,Encino,11.12,true
+90049,Los Angeles,11.31,true
+91325,Northridge,12.02,true
+90023,Los Angeles,12.45,true
+91108,San Marino,12.59,true
+90230,Culver City,12.97,true
+91756,Monterey Park,13.72,true
+90001,Los Angeles,14.38,true
+90305,Inglewood,14.75,true
+91023,Mount Wilson,15.16,false
+91025,Sierra Madre,15.47,false
+91303,Canoga Park,15.84,false
+91326,Porter Ranch,16.05,false
+90290,Topanga,16.57,false
+90201,Bell Gardens,17.32,false
+91731,El Monte,17.57,false
+91387,Canyon Country,17.69,false
+90245,El Segundo,17.83,false
+91321,Newhall,18.34,false
+90262,Lynwood,18.47,false
+90249,Gardena,18.79,false
+91302,Calabasas,19.61,false
+91009,Duarte,19.90,false
+90606,Whittier,19.91,false
+90220,Compton,21.06,false
+93550,Palmdale,21.29,false
+90254,Hermosa Beach,21.64,false
+91797,Pomona,21.71,false
+91381,Stevenson Ranch,21.83,false
+93063,Simi Valley,22.59,false
+91354,Valencia,22.59,false
+90706,Bellflower,22.68,false
+93510,Acton,22.73,false
+91714,City Of Industry,23.35,false
+90502,Torrance,23.77,false
+91702,Azusa,24.23,false
+90604,Whittier,24.42,false
+90807,Long Beach,24.87,false
+91385,Valencia,24.90,false
+91301,Agoura Hills,25.06,false
+90265,Malibu,25.26,false
+91377,Oak Park,25.38,false
+93065,Simi Valley,26.08,false
+90715,Lakewood,26.89,false
+91748,Rowland Heights,27.70,false
+90274,Palos Verdes Peninsula,28.16,false
+90624,Buena Park,28.36,false
+90815,Long Beach,28.60,false
+90831,Long Beach,28.79,false
+91773,San Dimas,29.34,false
+91358,Thousand Oaks,29.41,false
+93553,Pearblossom,29.47,false
+92838,Fullerton,29.56,false
+90732,San Pedro,29.70,false
+93543,Littlerock,29.75,false
+90263,Malibu,30.15,false
+93551,Palmdale,30.17,false
+93590,Palmdale,30.53,false
+92846,Garden Grove,31.31,false
+91765,Diamond Bar,31.51,false
+93040,Piru,32.06,false
+93552,Palmdale,32.49,false
+93021,Moorpark,32.50,false
+92825,Anaheim,33.02,false
+92871,Placentia,33.38,false
+91319,Newbury Park,33.60,false
+91769,Pomona,33.63,false
+90743,Surfside,33.70,false
+92823,Brea,34.63,false
+92842,Garden Grove,34.74,false
+91711,Claremont,34.86,false
+93563,Valyermo,35.69,false
+92647,Huntington Beach,36.13,false
+91709,Chino Hills,36.40,false
+92867,Orange,36.85,false
+93534,Lancaster,37.22,false
+93015,Fillmore,37.43,false
+93532,Lake Hughes,37.62,false
+92817,Anaheim,37.65,false
+93012,Camarillo,38.08,false
+91784,Upland,38.08,false
+91762,Ontario,38.37,false
+92712,Santa Ana,38.86,false
+93544,Llano,39.32,false
+92887,Yorba Linda,39.33,false
+93536,Lancaster,39.84,false
+93066,Somis,40.03,false
+92646,Huntington Beach,40.46,false
+93591,Palmdale,41.62,false
+91708,Chino,41.87,false
+91730,Rancho Cucamonga,41.93,false
+92705,Santa Ana,41.95,false
+92397,Wrightwood,42.00,false
+92372,Pinon Hills,43.24,false
+92862,Orange,43.68,false
+92606,Irvine,43.68,false
+93061,Santa Paula,43.89,false
+92658,Newport Beach,45.10,false
+93535,Lancaster,45.19,false
+93042,Point Mugu Nawc,45.32,false
+91739,Rancho Cucamonga,46.01,false
+92329,Phelan,46.32,false
+92358,Lytle Creek,46.33,false
+92882,Corona,47.06,false
+92860,Norco,47.34,false
+91752,Mira Loma,47.37,false
+93031,Oxnard,47.40,false
+92618,Irvine,47.78,false
+93560,Rosamond,48.01,false
+92603,Irvine,48.48,false
+93033,Oxnard,48.51,false
+93004,Ventura,48.67,false
+93009,Ventura,48.70,false
+92337,Fontana,49.49,false
