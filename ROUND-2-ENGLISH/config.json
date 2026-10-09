@@ -6,8 +6,8 @@
   "language": "ENGL",
   "distanceValue": "8.0467",
   "headless": true,
-  "pageDelayMs": [1000, 2000],
-  "zipDelayMs": [3000, 5000],
+  "pageDelayMs": [2000, 4000],
+  "zipDelayMs": [5000, 10000],
   "typingDelayMs": [90, 190],
   "maxAttempts": 3
 }

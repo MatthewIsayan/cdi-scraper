@@ -16,6 +16,7 @@ import { writeMasterCsv } from "./export.js";
 import { buildGrid } from "./grid.js";
 import { queueCapRecovery, writeRecoveryReport } from './cap-recovery.js';
 import { humanPause, log, randomBetween, sleep } from "./human.js";
+import { advanceWithRetry, canDeferZip, isAccessBlock } from './pagination-retry.js';
 
 type Pagination = { start: number; end: number; total: number; text: string };
 type PageSnapshot = { pagination: Pagination | null; agents: AgentRow[]; noData: boolean; alert: string };
@@ -144,6 +145,8 @@ async function readSnapshot(page: Page): Promise<PageSnapshot> {
 }
 
 async function assertSession(page: Page): Promise<void> {
+  const blocked = await page.evaluate(() => /captcha|verify you are human|access denied|too many requests/i.test(document.body?.innerText || ''));
+  if (blocked) throw new Error('Access denied or verification challenge; manual review required');
   const expired = await page.evaluate(sessionExpiredFn).catch(() => false);
   if (expired) throw new SessionExpiredError();
 }
@@ -248,22 +251,65 @@ async function clickNext(page: Page): Promise<boolean> {
     : selector.includes("thru300")
       ? "DA200TO300Event"
       : null;
-  if (eventName) {
-    await page.evaluate((event) => (window as any).jQuery?.event.trigger(event), eventName);
-  } else {
-    await clickButton(page, selector);
-  }
-  const deadline = Date.now() + 35_000;
-  while (Date.now() < deadline) {
-    await sleep(350);
+  const pending = new Set<import('playwright').Request>();
+  let blocked = '';
+  const onRequest = (request: import('playwright').Request) => {
+    if (['xhr', 'fetch'].includes(request.resourceType())) pending.add(request);
+  };
+  const onFinished = (request: import('playwright').Request) => { pending.delete(request); };
+  const onFailed = (request: import('playwright').Request) => {
+    pending.delete(request);
+    log(`Pagination request failed: ${request.failure()?.errorText || 'unknown error'}`);
+  };
+  const onResponse = (response: import('playwright').Response) => {
+    if (response.status() === 403 || response.status() === 429) blocked = `HTTP ${response.status()} during pagination; manual review required`;
+    if (response.status() >= 400) log(`Pagination HTTP ${response.status()}`);
+  };
+  const changed = async () => {
+    if (blocked) throw new Error(blocked);
     await assertSession(page);
     const after = await readSnapshot(page).catch(() => null);
-    if (!after) continue;
+    if (!after?.agents.length || !after.pagination) return false;
     const pageChanged = after.pagination?.text && after.pagination.text !== before.pagination?.text;
     const agentChanged = after.agents[0]?.licenseNumber && after.agents[0].licenseNumber !== before.agents[0]?.licenseNumber;
-    if (pageChanged || agentChanged) return true;
+    // Each 100-record group restarts its page numbers; verify rows changed too.
+    return Boolean(agentChanged && (eventName || pageChanged));
+  };
+  page.on('request', onRequest);
+  page.on('requestfinished', onFinished);
+  page.on('requestfailed', onFailed);
+  page.on('response', onResponse);
+  try {
+    await advanceWithRetry({
+      changed,
+      pending: () => pending.size > 0,
+      trigger: async (attempt) => {
+        log(`Pagination from ${before.pagination?.text}: ${selector}, attempt ${attempt + 1}`);
+        // Use the site's actual control first, rather than synthesizing its event.
+        if (attempt === 1 && eventName) {
+          await page.evaluate((event) => {
+            if (!(window as any).jQuery) throw new Error('Pagination event handler unavailable');
+            (window as any).jQuery.event.trigger(event);
+          }, eventName);
+        } else await clickButton(page, selector);
+      },
+      wait: async (milliseconds) => {
+        const deadline = Date.now() + milliseconds;
+        while (Date.now() < deadline) {
+          await sleep(350);
+          if (await changed()) return true;
+        }
+        return false;
+      },
+      note: log,
+    });
+    return true;
+  } finally {
+    page.off('request', onRequest);
+    page.off('requestfinished', onFinished);
+    page.off('requestfailed', onFailed);
+    page.off('response', onResponse);
   }
-  throw new Error("Timed out waiting for the next page of agents");
 }
 
 async function scrapeZip(page: Page, zip: string, config: AppConfig, db: ReturnType<typeof openDb>): Promise<void> {
@@ -357,6 +403,7 @@ async function main(): Promise<void> {
   const { context, page } = await launchBrowser(config);
   let giveUp = false;
   let unresolvedCaps = 0;
+  let deferredZips = 0;
   try {
     await openSearch(page, config);
     let first = true;
@@ -401,7 +448,18 @@ async function main(): Promise<void> {
           );
           await page.screenshot({ path: path.join(process.cwd(), "logs", "last-error.png"), fullPage: true }).catch(() => undefined);
           markSearch(db, search.zip, { status: "error", error: message });
+          if (isAccessBlock(message)) {
+            giveUp = true;
+            log(`Stopping for access/verification review: ${message}`);
+            break;
+          }
           if (attempt >= config.maxAttempts) {
+            if (canDeferZip(message)) {
+              deferredZips += 1;
+              log(`Deferred ${search.zip} after ${config.maxAttempts} timeout attempts; saved data preserved, ZIP remains incomplete. Continuing other ZIPs.`);
+              await openSearch(page, config);
+              break;
+            }
             giveUp = true;
             log(`Stopping. ${search.zip} failed ${config.maxAttempts} times. Saved agents are preserved.`);
             break;
@@ -428,7 +486,11 @@ async function main(): Promise<void> {
   } else if (stopping) {
     log("Stopped. Run the same command again and it will continue unfinished ZIP codes.");
   } else {
-    log(`Finished the queued ZIP codes. ${unresolvedCaps} capped searches remain potentially incomplete.`);
+    log(`Finished this queue pass. ${deferredZips} ZIPs deferred for timeout recovery; ${unresolvedCaps} capped searches remain potentially incomplete.`);
+    if (deferredZips) {
+      log('Timed out ZIPs remain queued; requesting a supervised recovery pass.');
+      process.exitCode = 1;
+    }
   }
 }
 
