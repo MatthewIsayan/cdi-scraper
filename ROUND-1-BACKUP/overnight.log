@@ -1,0 +1,646 @@
+
+> scrape
+> node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/scrape.ts
+
+[04:23:06] Grid has 128 ZIP codes within 50 miles of 91506. 106 still need a search.
+[04:23:07] Opened installed Chrome with a saved local profile
+[04:23:09] Searching 90042 Los Angeles (8.4 mi)
+[04:23:44] 90042 | 1 - 5 of 100 | +0 new | 345 unique
+[04:23:49] 90042 | 6 - 10 of 100 | +0 new | 345 unique
+[04:23:56] 90042 | 11 - 15 of 100 | +0 new | 345 unique
+[04:24:01] 90042 | 16 - 20 of 100 | +0 new | 345 unique
+[04:24:07] 90042 | 21 - 25 of 100 | +0 new | 345 unique
+[04:24:14] 90042 | 26 - 30 of 100 | +0 new | 345 unique
+[04:24:21] 90042 | 31 - 35 of 100 | +0 new | 345 unique
+[04:24:29] 90042 | 36 - 40 of 100 | +0 new | 345 unique
+[04:24:35] 90042 | 41 - 45 of 100 | +0 new | 345 unique
+[04:24:41] 90042 | 46 - 50 of 100 | +0 new | 345 unique
+[04:24:48] 90042 | 51 - 55 of 100 | +0 new | 345 unique
+[04:24:56] 90042 | 56 - 60 of 100 | +0 new | 345 unique
+[04:25:05] 90042 | 61 - 65 of 100 | +0 new | 345 unique
+[04:25:12] 90042 | 66 - 70 of 100 | +0 new | 345 unique
+[04:25:20] 90042 | 71 - 75 of 100 | +0 new | 345 unique
+[04:25:27] 90042 | 76 - 80 of 100 | +0 new | 345 unique
+[04:25:33] 90042 | 81 - 85 of 100 | +0 new | 345 unique
+[04:25:38] 90042 | 86 - 90 of 100 | +0 new | 345 unique
+[04:25:44] 90042 | 91 - 95 of 100 | +0 new | 345 unique
+[04:25:50] 90042 | 96 - 100 of 100 | +0 new | 345 unique
+[04:25:57] 90042 | 1 - 5 of 12 | +0 new | 345 unique
+[04:26:05] 90042 | 6 - 10 of 12 | +0 new | 345 unique
+[04:26:12] 90042 | 11 - 12 of 12 | +0 new | 345 unique
+[04:26:18] Pausing before 91023 so this does not look like a rapid crawl
+[04:26:23] Stopping after the current page is saved. Press Ctrl+C again to force quit.
+
+> scrape
+> node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/scrape.ts
+
+[04:26:41] Grid has 128 ZIP codes within 50 miles of 91506. 105 still need a search.
+[04:26:42] Opened installed Chrome with a saved local profile
+[04:26:44] Searching 91023 Mount Wilson (15.2 mi)
+[04:27:19] 91023 | 1 - 2 of 2 | +0 new | 345 unique
+[04:27:28] Pausing before 91025 so this does not look like a rapid crawl
+[04:28:40] Searching 91025 Sierra Madre (15.5 mi)
+[04:29:14] 91025 | 1 - 5 of 19 | +0 new | 345 unique
+[04:29:30] 91025 | 6 - 10 of 19 | +1 new | 346 unique
+[04:29:44] 91025 | 11 - 15 of 19 | +0 new | 346 unique
+[04:30:00] 91025 | 16 - 19 of 19 | +0 new | 346 unique
+[04:30:11] Pausing before 91303 so this does not look like a rapid crawl
+[04:31:06] Searching 91303 Canoga Park (15.8 mi)
+[04:31:41] 91303 | 1 - 5 of 31 | +5 new | 351 unique
+[04:31:53] 91303 | 6 - 10 of 31 | +2 new | 353 unique
+[04:32:08] 91303 | 11 - 15 of 31 | +3 new | 356 unique
+[04:32:25] 91303 | 16 - 20 of 31 | +1 new | 357 unique
+[04:32:36] 91303 | 21 - 25 of 31 | +1 new | 358 unique
+[04:32:47] 91303 | 26 - 30 of 31 | +0 new | 358 unique
+[04:33:01] 91303 | 31 - 31 of 31 | +0 new | 358 unique
+[04:33:10] Pausing before 91326 so this does not look like a rapid crawl
+[04:34:11] Searching 91326 Porter Ranch (16.1 mi)
+[04:34:47] 91326 | 1 - 5 of 19 | +0 new | 358 unique
+[04:34:57] 91326 | 6 - 10 of 19 | +1 new | 359 unique
+[04:35:11] 91326 | 11 - 15 of 19 | +0 new | 359 unique
+[04:35:28] 91326 | 16 - 19 of 19 | +0 new | 359 unique
+[04:35:38] Pausing before 90290 so this does not look like a rapid crawl
+[04:36:38] Searching 90290 Topanga (16.6 mi)
+[04:37:13] 90290 | 1 - 5 of 7 | +0 new | 359 unique
+[04:37:30] 90290 | 6 - 7 of 7 | +0 new | 359 unique
+[04:37:41] Pausing before 90201 so this does not look like a rapid crawl
+[04:38:48] Searching 90201 Bell Gardens (17.3 mi)
+[04:39:22] 90201 | 1 - 3 of 3 | +0 new | 359 unique
+[04:39:30] Pausing before 91731 so this does not look like a rapid crawl
+[04:40:28] Searching 91731 El Monte (17.6 mi)
+[04:41:02] 91731 | 1 - 4 of 4 | +0 new | 359 unique
+[04:41:12] Pausing before 91387 so this does not look like a rapid crawl
+[04:42:28] Searching 91387 Canyon Country (17.7 mi)
+[04:43:03] 91387 | 1 - 5 of 5 | +5 new | 364 unique
+[04:43:16] Pausing before 90245 so this does not look like a rapid crawl
+[04:44:37] Searching 90245 El Segundo (17.8 mi)
+[04:45:12] 90245 | 1 - 2 of 2 | +1 new | 365 unique
+[04:45:23] Pausing before 91321 so this does not look like a rapid crawl
+[04:46:22] Searching 91321 Newhall (18.3 mi)
+[04:46:58] 91321 | 1 - 5 of 5 | +0 new | 365 unique
+[04:47:10] Pausing before 90262 so this does not look like a rapid crawl
+[04:48:04] Searching 90262 Lynwood (18.5 mi)
+[04:48:51] Problem on 90262: Search for 90262 did not return a result list
+[04:50:05] Searching 90262 Lynwood (18.5 mi) attempt 2
+[04:50:51] Problem on 90262: Search for 90262 did not return a result list
+[04:54:26] Searching 90262 Lynwood (18.5 mi) attempt 3
+[04:55:13] Problem on 90262: Search for 90262 did not return a result list
+[04:55:13] Deferring 90262 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[04:55:15] Pausing before 90249 so this does not look like a rapid crawl
+[04:56:24] Searching 90249 Gardena (18.8 mi)
+[04:56:59] 90249 | 1 - 2 of 2 | +0 new | 365 unique
+[04:57:10] Pausing before 91302 so this does not look like a rapid crawl
+[04:58:01] Searching 91302 Calabasas (19.6 mi)
+[04:58:36] 91302 | 1 - 5 of 5 | +0 new | 365 unique
+[04:58:45] Pausing before 91009 so this does not look like a rapid crawl
+[05:00:11] Searching 91009 Duarte (19.9 mi)
+[05:00:46] 91009 | 1 - 2 of 2 | +1 new | 366 unique
+[05:00:56] Pausing before 90606 so this does not look like a rapid crawl
+[05:02:25] Searching 90606 Whittier (19.9 mi)
+[05:03:00] 90606 | 1 - 1 of 1 | +0 new | 366 unique
+[05:03:10] Pausing before 90220 so this does not look like a rapid crawl
+[05:03:58] Searching 90220 Compton (21.1 mi)
+[05:04:45] Problem on 90220: Search for 90220 did not return a result list
+[05:06:07] Searching 90220 Compton (21.1 mi) attempt 2
+[05:06:54] Problem on 90220: Search for 90220 did not return a result list
+[05:10:27] Searching 90220 Compton (21.1 mi) attempt 3
+[05:11:14] Problem on 90220: Search for 90220 did not return a result list
+[05:11:14] Deferring 90220 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[05:11:16] Pausing before 93550 so this does not look like a rapid crawl
+[05:12:40] Searching 93550 Palmdale (21.3 mi)
+[05:13:27] Problem on 93550: Search for 93550 did not return a result list
+[05:14:39] Searching 93550 Palmdale (21.3 mi) attempt 2
+[05:15:26] Problem on 93550: Search for 93550 did not return a result list
+[05:18:53] Searching 93550 Palmdale (21.3 mi) attempt 3
+[05:19:41] Problem on 93550: Search for 93550 did not return a result list
+[05:19:41] Deferring 93550 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[05:19:43] Pausing before 90254 so this does not look like a rapid crawl
+[05:20:47] Searching 90254 Hermosa Beach (21.6 mi)
+[05:21:22] 90254 | 1 - 3 of 3 | +1 new | 367 unique
+[05:21:37] Pausing before 91797 so this does not look like a rapid crawl
+[05:22:23] Searching 91797 Pomona (21.7 mi)
+[05:23:43] Problem on 91797: Search for 91797 did not return a result list
+[05:24:56] Searching 91797 Pomona (21.7 mi) attempt 2
+[05:26:16] Problem on 91797: Search for 91797 did not return a result list
+[05:30:12] Searching 91797 Pomona (21.7 mi) attempt 3
+[05:31:31] Problem on 91797: Search for 91797 did not return a result list
+[05:31:32] Deferring 91797 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[05:31:34] Pausing before 91381 so this does not look like a rapid crawl
+[05:32:42] Searching 91381 Stevenson Ranch (21.8 mi)
+[05:33:18] 91381 | 1 - 1 of 1 | +1 new | 368 unique
+[05:33:32] Pausing before 93063 so this does not look like a rapid crawl
+[05:34:25] Searching 93063 Simi Valley (22.6 mi)
+[05:35:01] 93063 | 1 - 2 of 2 | +2 new | 370 unique
+[05:35:11] Pausing before 91354 so this does not look like a rapid crawl
+[05:36:09] Searching 91354 Valencia (22.6 mi)
+[05:36:44] 91354 | 1 - 2 of 2 | +0 new | 370 unique
+[05:36:59] Pausing before 90706 so this does not look like a rapid crawl
+[05:38:16] Searching 90706 Bellflower (22.7 mi)
+[05:39:03] Problem on 90706: Search for 90706 did not return a result list
+[05:40:08] Searching 90706 Bellflower (22.7 mi) attempt 2
+[05:40:55] Problem on 90706: Search for 90706 did not return a result list
+[05:44:12] Searching 90706 Bellflower (22.7 mi) attempt 3
+[05:44:59] Problem on 90706: Search for 90706 did not return a result list
+[05:44:59] Deferring 90706 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[05:45:00] Pausing before 93510 so this does not look like a rapid crawl
+[05:46:09] Searching 93510 Acton (22.7 mi)
+[05:46:57] Problem on 93510: Search for 93510 did not return a result list
+[05:48:23] Searching 93510 Acton (22.7 mi) attempt 2
+[05:49:09] Problem on 93510: Search for 93510 did not return a result list
+[05:52:15] Searching 93510 Acton (22.7 mi) attempt 3
+[05:53:01] Problem on 93510: Search for 93510 did not return a result list
+[05:53:01] Deferring 93510 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[05:53:03] Pausing before 91714 so this does not look like a rapid crawl
+[05:54:30] Searching 91714 City Of Industry (23.3 mi)
+[05:55:05] 91714 | 1 - 2 of 2 | +2 new | 372 unique
+[05:55:17] Pausing before 90502 so this does not look like a rapid crawl
+[05:56:07] Searching 90502 Torrance (23.8 mi)
+[05:56:42] 90502 | 1 - 1 of 1 | +0 new | 372 unique
+[05:56:54] Pausing before 91702 so this does not look like a rapid crawl
+[05:58:07] Searching 91702 Azusa (24.2 mi)
+[05:58:54] Problem on 91702: Search for 91702 did not return a result list
+[06:00:15] Searching 91702 Azusa (24.2 mi) attempt 2
+[06:01:01] Problem on 91702: Search for 91702 did not return a result list
+[06:04:07] Searching 91702 Azusa (24.2 mi) attempt 3
+[06:04:54] Problem on 91702: Search for 91702 did not return a result list
+[06:04:54] Deferring 91702 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[06:04:56] Pausing before 90604 so this does not look like a rapid crawl
+[06:05:54] Searching 90604 Whittier (24.4 mi)
+[06:06:41] Problem on 90604: Search for 90604 did not return a result list
+[06:07:49] Searching 90604 Whittier (24.4 mi) attempt 2
+[06:08:35] Problem on 90604: Search for 90604 did not return a result list
+[06:11:54] Searching 90604 Whittier (24.4 mi) attempt 3
+[06:12:40] Problem on 90604: Search for 90604 did not return a result list
+[06:12:40] Deferring 90604 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[06:12:42] Pausing before 90807 so this does not look like a rapid crawl
+[06:13:53] Searching 90807 Long Beach (24.9 mi)
+[06:14:39] Problem on 90807: Search for 90807 did not return a result list
+[06:15:47] Searching 90807 Long Beach (24.9 mi) attempt 2
+[06:16:34] Problem on 90807: Search for 90807 did not return a result list
+[06:19:50] Searching 90807 Long Beach (24.9 mi) attempt 3
+[06:20:36] Problem on 90807: Search for 90807 did not return a result list
+[06:20:36] Deferring 90807 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[06:20:39] Pausing before 91385 so this does not look like a rapid crawl
+[06:21:50] Searching 91385 Valencia (24.9 mi)
+[06:22:26] 91385 | 1 - 1 of 1 | +0 new | 372 unique
+[06:22:38] Pausing before 91301 so this does not look like a rapid crawl
+[06:23:34] Searching 91301 Agoura Hills (25.1 mi)
+[06:24:09] 91301 | 1 - 1 of 1 | +1 new | 373 unique
+[06:24:23] Pausing before 90265 so this does not look like a rapid crawl
+[06:25:36] Searching 90265 Malibu (25.3 mi)
+[06:26:24] Problem on 90265: Search for 90265 did not return a result list
+[06:27:48] Searching 90265 Malibu (25.3 mi) attempt 2
+[06:28:35] Problem on 90265: Search for 90265 did not return a result list
+[06:32:01] Searching 90265 Malibu (25.3 mi) attempt 3
+[06:32:49] Problem on 90265: Search for 90265 did not return a result list
+[06:32:50] Deferring 90265 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[06:32:52] Pausing before 91377 so this does not look like a rapid crawl
+[06:34:18] Searching 91377 Oak Park (25.4 mi)
+[06:34:54] 91377 | 1 - 4 of 4 | +3 new | 376 unique
+[06:35:09] Pausing before 93065 so this does not look like a rapid crawl
+[06:36:06] Searching 93065 Simi Valley (26.1 mi)
+[06:36:42] 93065 | 1 - 2 of 2 | +1 new | 377 unique
+[06:36:53] Pausing before 90715 so this does not look like a rapid crawl
+[06:38:22] Searching 90715 Lakewood (26.9 mi)
+[06:39:08] Problem on 90715: Search for 90715 did not return a result list
+[06:40:37] Searching 90715 Lakewood (26.9 mi) attempt 2
+[06:41:24] Problem on 90715: Search for 90715 did not return a result list
+[06:44:31] Searching 90715 Lakewood (26.9 mi) attempt 3
+[06:45:19] Problem on 90715: Search for 90715 did not return a result list
+[06:45:19] Deferring 90715 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[06:45:21] Pausing before 91748 so this does not look like a rapid crawl
+[06:46:28] Searching 91748 Rowland Heights (27.7 mi)
+[06:47:02] 91748 | 1 - 4 of 4 | +2 new | 379 unique
+[06:47:15] Pausing before 90274 so this does not look like a rapid crawl
+[06:48:26] Searching 90274 Palos Verdes Peninsula (28.2 mi)
+[06:49:01] 90274 | 1 - 1 of 1 | +0 new | 379 unique
+[06:49:12] Pausing before 90624 so this does not look like a rapid crawl
+[06:50:05] Searching 90624 Buena Park (28.4 mi)
+[06:50:40] 90624 | 1 - 1 of 1 | +1 new | 380 unique
+[06:50:51] Pausing before 90815 so this does not look like a rapid crawl
+[06:51:51] Searching 90815 Long Beach (28.6 mi)
+[06:52:37] Problem on 90815: Search for 90815 did not return a result list
+[06:53:59] Searching 90815 Long Beach (28.6 mi) attempt 2
+[06:54:45] Problem on 90815: Search for 90815 did not return a result list
+[06:58:09] Searching 90815 Long Beach (28.6 mi) attempt 3
+[06:58:55] Problem on 90815: Search for 90815 did not return a result list
+[06:58:55] Deferring 90815 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[06:58:57] Pausing before 90831 so this does not look like a rapid crawl
+[07:00:21] Searching 90831 Long Beach (28.8 mi)
+[07:01:08] Problem on 90831: Search for 90831 did not return a result list
+[07:02:18] Searching 90831 Long Beach (28.8 mi) attempt 2
+[07:03:04] Problem on 90831: Search for 90831 did not return a result list
+[07:06:35] Searching 90831 Long Beach (28.8 mi) attempt 3
+[07:07:22] Problem on 90831: Search for 90831 did not return a result list
+[07:07:22] Deferring 90831 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[07:07:24] Pausing before 91773 so this does not look like a rapid crawl
+[07:08:37] Searching 91773 San Dimas (29.3 mi)
+[07:09:11] 91773 | 1 - 4 of 4 | +4 new | 384 unique
+[07:09:25] Pausing before 91358 so this does not look like a rapid crawl
+[07:10:13] Searching 91358 Thousand Oaks (29.4 mi)
+[07:10:49] 91358 | 1 - 4 of 4 | +0 new | 384 unique
+[07:11:01] Pausing before 93553 so this does not look like a rapid crawl
+[07:11:52] Searching 93553 Pearblossom (29.5 mi)
+[07:12:40] Problem on 93553: Search for 93553 did not return a result list
+[07:13:51] Searching 93553 Pearblossom (29.5 mi) attempt 2
+[07:14:38] Problem on 93553: Search for 93553 did not return a result list
+[07:18:38] Searching 93553 Pearblossom (29.5 mi) attempt 3
+[07:19:25] Problem on 93553: Search for 93553 did not return a result list
+[07:19:25] Deferring 93553 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[07:19:27] Pausing before 92838 so this does not look like a rapid crawl
+[07:20:50] Searching 92838 Fullerton (29.6 mi)
+[07:21:25] 92838 | 1 - 3 of 3 | +0 new | 384 unique
+[07:21:38] Pausing before 90732 so this does not look like a rapid crawl
+[07:22:23] Searching 90732 San Pedro (29.7 mi)
+[07:23:10] Problem on 90732: Search for 90732 did not return a result list
+[07:24:35] Searching 90732 San Pedro (29.7 mi) attempt 2
+[07:25:22] Problem on 90732: Search for 90732 did not return a result list
+[07:28:58] Searching 90732 San Pedro (29.7 mi) attempt 3
+[07:29:45] Problem on 90732: Search for 90732 did not return a result list
+[07:29:46] Deferring 90732 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[07:29:47] Pausing before 93543 so this does not look like a rapid crawl
+[07:30:53] Searching 93543 Littlerock (29.7 mi)
+[07:31:40] Problem on 93543: Search for 93543 did not return a result list
+[07:32:49] Searching 93543 Littlerock (29.7 mi) attempt 2
+[07:33:36] Problem on 93543: Search for 93543 did not return a result list
+[07:37:19] Searching 93543 Littlerock (29.7 mi) attempt 3
+[07:38:06] Problem on 93543: Search for 93543 did not return a result list
+[07:38:06] Deferring 93543 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[07:38:08] Pausing before 90263 so this does not look like a rapid crawl
+[07:39:32] Searching 90263 Malibu (30.2 mi)
+[07:40:19] Problem on 90263: Search for 90263 did not return a result list
+[07:41:45] Searching 90263 Malibu (30.2 mi) attempt 2
+[07:42:32] Problem on 90263: Search for 90263 did not return a result list
+[07:45:51] Searching 90263 Malibu (30.2 mi) attempt 3
+[07:46:38] Problem on 90263: Search for 90263 did not return a result list
+[07:46:38] Deferring 90263 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[07:46:40] Pausing before 93551 so this does not look like a rapid crawl
+[07:48:06] Searching 93551 Palmdale (30.2 mi)
+[07:48:42] 93551 | 1 - 1 of 1 | +1 new | 385 unique
+[07:48:53] Pausing before 93590 so this does not look like a rapid crawl
+[07:50:11] Searching 93590 Palmdale (30.5 mi)
+[07:50:57] Problem on 93590: Search for 93590 did not return a result list
+[07:52:25] Searching 93590 Palmdale (30.5 mi) attempt 2
+[07:53:12] Problem on 93590: Search for 93590 did not return a result list
+[07:57:05] Searching 93590 Palmdale (30.5 mi) attempt 3
+[07:57:53] Problem on 93590: Search for 93590 did not return a result list
+[07:57:54] Deferring 93590 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[07:57:55] Pausing before 92846 so this does not look like a rapid crawl
+[07:59:09] Searching 92846 Garden Grove (31.3 mi)
+[07:59:43] 92846 | 1 - 1 of 1 | +1 new | 386 unique
+[07:59:55] Pausing before 91765 so this does not look like a rapid crawl
+[08:01:20] Searching 91765 Diamond Bar (31.5 mi)
+[08:01:54] 91765 | 1 - 4 of 4 | +2 new | 388 unique
+[08:02:04] Pausing before 93040 so this does not look like a rapid crawl
+[08:03:29] Searching 93040 Piru (32.1 mi)
+[08:04:17] Problem on 93040: Search for 93040 did not return a result list
+[08:05:39] Searching 93040 Piru (32.1 mi) attempt 2
+[08:06:27] Problem on 93040: Search for 93040 did not return a result list
+[08:09:32] Searching 93040 Piru (32.1 mi) attempt 3
+[08:10:32] Problem on 93040: Search for 93040 did not return a result list
+[08:10:32] Deferring 93040 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[08:10:34] Pausing before 93552 so this does not look like a rapid crawl
+[08:11:28] Searching 93552 Palmdale (32.5 mi)
+[08:12:16] Problem on 93552: Search for 93552 did not return a result list
+[08:13:29] Searching 93552 Palmdale (32.5 mi) attempt 2
+[08:14:16] Problem on 93552: Search for 93552 did not return a result list
+[08:18:07] Searching 93552 Palmdale (32.5 mi) attempt 3
+[08:18:55] Problem on 93552: Search for 93552 did not return a result list
+[08:18:55] Deferring 93552 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[08:18:57] Pausing before 93021 so this does not look like a rapid crawl
+[08:19:50] Searching 93021 Moorpark (32.5 mi)
+[08:20:25] 93021 | 1 - 1 of 1 | +0 new | 388 unique
+[08:20:35] Pausing before 92825 so this does not look like a rapid crawl
+[08:21:52] Searching 92825 Anaheim (33.0 mi)
+[08:22:27] 92825 | 1 - 2 of 2 | +1 new | 389 unique
+[08:22:36] Pausing before 92871 so this does not look like a rapid crawl
+[08:23:32] Searching 92871 Placentia (33.4 mi)
+[08:24:07] 92871 | 1 - 3 of 3 | +0 new | 389 unique
+[08:24:16] Pausing before 91319 so this does not look like a rapid crawl
+[08:25:27] Searching 91319 Newbury Park (33.6 mi)
+[08:26:03] 91319 | 1 - 2 of 2 | +0 new | 389 unique
+[08:26:18] Pausing before 91769 so this does not look like a rapid crawl
+[08:27:12] Searching 91769 Pomona (33.6 mi)
+[08:27:46] 91769 | 1 - 4 of 4 | +0 new | 389 unique
+[08:28:01] Pausing before 90743 so this does not look like a rapid crawl
+[08:29:17] Searching 90743 Surfside (33.7 mi)
+[08:29:52] 90743 | 1 - 1 of 1 | +0 new | 389 unique
+[08:30:02] Pausing before 92823 so this does not look like a rapid crawl
+[08:31:17] Searching 92823 Brea (34.6 mi)
+[08:31:52] 92823 | 1 - 1 of 1 | +0 new | 389 unique
+[08:32:02] Pausing before 92842 so this does not look like a rapid crawl
+[08:33:07] Searching 92842 Garden Grove (34.7 mi)
+[08:33:41] 92842 | 1 - 1 of 1 | +0 new | 389 unique
+[08:33:53] Pausing before 91711 so this does not look like a rapid crawl
+[08:35:11] Searching 91711 Claremont (34.9 mi)
+[08:35:58] Problem on 91711: Search for 91711 did not return a result list
+[08:37:14] Searching 91711 Claremont (34.9 mi) attempt 2
+[08:38:02] Problem on 91711: Search for 91711 did not return a result list
+[08:41:05] Searching 91711 Claremont (34.9 mi) attempt 3
+[08:41:52] Problem on 91711: Search for 91711 did not return a result list
+[08:41:52] Deferring 91711 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[08:41:54] Pausing before 93563 so this does not look like a rapid crawl
+[08:42:47] Searching 93563 Valyermo (35.7 mi)
+[08:43:34] Problem on 93563: Search for 93563 did not return a result list
+[08:44:54] Searching 93563 Valyermo (35.7 mi) attempt 2
+[08:45:43] Problem on 93563: Search for 93563 did not return a result list
+[08:48:48] Searching 93563 Valyermo (35.7 mi) attempt 3
+[08:49:36] Problem on 93563: Search for 93563 did not return a result list
+[08:49:36] Deferring 93563 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[08:49:38] Pausing before 92647 so this does not look like a rapid crawl
+[08:51:02] Searching 92647 Huntington Beach (36.1 mi)
+[08:51:38] 92647 | 1 - 1 of 1 | +0 new | 389 unique
+[08:51:47] Pausing before 91709 so this does not look like a rapid crawl
+[08:52:37] Searching 91709 Chino Hills (36.4 mi)
+[08:53:26] Problem on 91709: Search for 91709 did not return a result list
+[08:54:43] Searching 91709 Chino Hills (36.4 mi) attempt 2
+[08:55:31] Problem on 91709: Search for 91709 did not return a result list
+[08:58:40] Searching 91709 Chino Hills (36.4 mi) attempt 3
+[08:59:27] Problem on 91709: Search for 91709 did not return a result list
+[08:59:27] Deferring 91709 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[08:59:28] Pausing before 92867 so this does not look like a rapid crawl
+[09:00:47] Searching 92867 Orange (36.8 mi)
+[09:01:24] 92867 | 1 - 2 of 2 | +1 new | 390 unique
+[09:01:38] Pausing before 93534 so this does not look like a rapid crawl
+[09:02:39] Searching 93534 Lancaster (37.2 mi)
+[09:03:27] Problem on 93534: Search for 93534 did not return a result list
+[09:04:42] Searching 93534 Lancaster (37.2 mi) attempt 2
+[09:05:30] Problem on 93534: Search for 93534 did not return a result list
+[09:08:40] Searching 93534 Lancaster (37.2 mi) attempt 3
+[09:09:29] Problem on 93534: Search for 93534 did not return a result list
+[09:09:29] Deferring 93534 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[09:09:31] Pausing before 93015 so this does not look like a rapid crawl
+[09:10:24] Searching 93015 Fillmore (37.4 mi)
+[09:11:13] Problem on 93015: Search for 93015 did not return a result list
+[09:12:42] Searching 93015 Fillmore (37.4 mi) attempt 2
+[09:13:32] Problem on 93015: Search for 93015 did not return a result list
+[09:16:37] Searching 93015 Fillmore (37.4 mi) attempt 3
+[09:17:26] Problem on 93015: Search for 93015 did not return a result list
+[09:17:26] Deferring 93015 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[09:17:29] Pausing before 93532 so this does not look like a rapid crawl
+[09:18:15] Searching 93532 Lake Hughes (37.6 mi)
+[09:19:07] Problem on 93532: Search for 93532 did not return a result list
+[09:20:16] Searching 93532 Lake Hughes (37.6 mi) attempt 2
+[09:21:07] Problem on 93532: Search for 93532 did not return a result list
+[09:24:34] Searching 93532 Lake Hughes (37.6 mi) attempt 3
+[09:25:23] Problem on 93532: Search for 93532 did not return a result list
+[09:25:23] Deferring 93532 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[09:25:25] Pausing before 92817 so this does not look like a rapid crawl
+[09:26:45] Searching 92817 Anaheim (37.6 mi)
+[09:27:19] 92817 | 1 - 1 of 1 | +0 new | 390 unique
+[09:27:34] Pausing before 93012 so this does not look like a rapid crawl
+[09:28:24] Searching 93012 Camarillo (38.1 mi)
+[09:29:00] 93012 | 1 - 1 of 1 | +1 new | 391 unique
+[09:29:13] Pausing before 91784 so this does not look like a rapid crawl
+[09:30:09] Searching 91784 Upland (38.1 mi)
+[09:30:45] 91784 | 1 - 1 of 1 | +1 new | 392 unique
+[09:30:54] Pausing before 91762 so this does not look like a rapid crawl
+[09:32:04] Searching 91762 Ontario (38.4 mi)
+[09:32:39] 91762 | 1 - 1 of 1 | +1 new | 393 unique
+[09:32:48] Pausing before 92712 so this does not look like a rapid crawl
+[09:34:16] Searching 92712 Santa Ana (38.9 mi)
+[09:34:51] 92712 | 1 - 3 of 3 | +1 new | 394 unique
+[09:35:03] Pausing before 93544 so this does not look like a rapid crawl
+[09:36:30] Searching 93544 Llano (39.3 mi)
+[09:37:18] Problem on 93544: Search for 93544 did not return a result list
+[09:38:30] Searching 93544 Llano (39.3 mi) attempt 2
+[09:39:18] Problem on 93544: Search for 93544 did not return a result list
+[09:42:34] Searching 93544 Llano (39.3 mi) attempt 3
+[09:43:22] Problem on 93544: Search for 93544 did not return a result list
+[09:43:22] Deferring 93544 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[09:43:24] Pausing before 92887 so this does not look like a rapid crawl
+[09:44:21] Searching 92887 Yorba Linda (39.3 mi)
+[09:45:09] Problem on 92887: Search for 92887 did not return a result list
+[09:46:27] Searching 92887 Yorba Linda (39.3 mi) attempt 2
+[09:47:16] Problem on 92887: Search for 92887 did not return a result list
+[09:50:40] Searching 92887 Yorba Linda (39.3 mi) attempt 3
+[09:51:28] Problem on 92887: Search for 92887 did not return a result list
+[09:51:28] Deferring 92887 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[09:51:29] Pausing before 93536 so this does not look like a rapid crawl
+[09:52:27] Searching 93536 Lancaster (39.8 mi)
+[09:53:16] Problem on 93536: Search for 93536 did not return a result list
+[09:54:48] Searching 93536 Lancaster (39.8 mi) attempt 2
+[09:55:36] Problem on 93536: Search for 93536 did not return a result list
+[09:58:51] Searching 93536 Lancaster (39.8 mi) attempt 3
+[09:59:38] Problem on 93536: Search for 93536 did not return a result list
+[09:59:38] Deferring 93536 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[09:59:40] Pausing before 93066 so this does not look like a rapid crawl
+[10:00:32] Searching 93066 Somis (40.0 mi)
+[10:01:20] Problem on 93066: Search for 93066 did not return a result list
+[10:02:31] Searching 93066 Somis (40.0 mi) attempt 2
+[10:03:20] Problem on 93066: Search for 93066 did not return a result list
+[10:06:41] Searching 93066 Somis (40.0 mi) attempt 3
+[10:07:30] Problem on 93066: Search for 93066 did not return a result list
+[10:07:30] Deferring 93066 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[10:07:32] Pausing before 92646 so this does not look like a rapid crawl
+[10:08:44] Searching 92646 Huntington Beach (40.5 mi)
+[10:09:20] 92646 | 1 - 1 of 1 | +0 new | 394 unique
+[10:09:31] Pausing before 93591 so this does not look like a rapid crawl
+[10:10:32] Searching 93591 Palmdale (41.6 mi)
+[10:11:20] Problem on 93591: Search for 93591 did not return a result list
+[10:12:33] Searching 93591 Palmdale (41.6 mi) attempt 2
+[10:13:20] Problem on 93591: Search for 93591 did not return a result list
+[10:16:44] Searching 93591 Palmdale (41.6 mi) attempt 3
+[10:17:32] Problem on 93591: Search for 93591 did not return a result list
+[10:17:32] Deferring 93591 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[10:17:34] Pausing before 91708 so this does not look like a rapid crawl
+[10:18:56] Searching 91708 Chino (41.9 mi)
+[10:19:42] Problem on 91708: Search for 91708 did not return a result list
+[10:20:54] Searching 91708 Chino (41.9 mi) attempt 2
+[10:21:40] Problem on 91708: Search for 91708 did not return a result list
+[10:25:27] Searching 91708 Chino (41.9 mi) attempt 3
+[10:26:14] Problem on 91708: Search for 91708 did not return a result list
+[10:26:14] Deferring 91708 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[10:26:16] Pausing before 91730 so this does not look like a rapid crawl
+[10:27:04] Searching 91730 Rancho Cucamonga (41.9 mi)
+[10:27:39] 91730 | 1 - 2 of 2 | +0 new | 394 unique
+[10:27:53] Pausing before 92705 so this does not look like a rapid crawl
+[10:29:04] Searching 92705 Santa Ana (41.9 mi)
+[10:29:39] 92705 | 1 - 2 of 2 | +0 new | 394 unique
+[10:29:52] Pausing before 92397 so this does not look like a rapid crawl
+[10:30:55] Searching 92397 Wrightwood (42.0 mi)
+[10:31:42] Problem on 92397: Search for 92397 did not return a result list
+[10:32:58] Searching 92397 Wrightwood (42.0 mi) attempt 2
+[10:33:46] Problem on 92397: Search for 92397 did not return a result list
+[10:37:48] Searching 92397 Wrightwood (42.0 mi) attempt 3
+[10:38:35] Problem on 92397: Search for 92397 did not return a result list
+[10:38:35] Deferring 92397 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[10:38:37] Pausing before 92372 so this does not look like a rapid crawl
+[10:39:23] Searching 92372 Pinon Hills (43.2 mi)
+[10:40:10] Problem on 92372: Search for 92372 did not return a result list
+[10:41:31] Searching 92372 Pinon Hills (43.2 mi) attempt 2
+[10:42:19] Problem on 92372: Search for 92372 did not return a result list
+[10:45:50] Searching 92372 Pinon Hills (43.2 mi) attempt 3
+[10:46:37] Problem on 92372: Search for 92372 did not return a result list
+[10:46:38] Deferring 92372 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[10:46:39] Pausing before 92862 so this does not look like a rapid crawl
+[10:47:27] Searching 92862 Orange (43.7 mi)
+[10:48:13] Problem on 92862: Search for 92862 did not return a result list
+[10:49:23] Searching 92862 Orange (43.7 mi) attempt 2
+[10:50:09] Problem on 92862: Search for 92862 did not return a result list
+[10:53:37] Searching 92862 Orange (43.7 mi) attempt 3
+[10:54:24] Problem on 92862: Search for 92862 did not return a result list
+[10:54:24] Deferring 92862 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[10:54:26] Pausing before 92606 so this does not look like a rapid crawl
+[10:55:45] Searching 92606 Irvine (43.7 mi)
+[10:56:20] 92606 | 1 - 5 of 6 | +4 new | 398 unique
+[10:56:35] 92606 | 6 - 6 of 6 | +0 new | 398 unique
+[10:56:48] Pausing before 93061 so this does not look like a rapid crawl
+[10:57:55] Searching 93061 Santa Paula (43.9 mi)
+[10:58:43] Problem on 93061: Search for 93061 did not return a result list
+[10:59:56] Searching 93061 Santa Paula (43.9 mi) attempt 2
+[11:00:45] Problem on 93061: Search for 93061 did not return a result list
+[11:04:22] Searching 93061 Santa Paula (43.9 mi) attempt 3
+[11:05:11] Problem on 93061: Search for 93061 did not return a result list
+[11:05:11] Deferring 93061 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:05:13] Pausing before 92658 so this does not look like a rapid crawl
+[11:06:22] Searching 92658 Newport Beach (45.1 mi)
+[11:06:58] 92658 | 1 - 5 of 6 | +1 new | 399 unique
+[11:07:13] 92658 | 6 - 6 of 6 | +0 new | 399 unique
+[11:07:27] Pausing before 93535 so this does not look like a rapid crawl
+[11:08:23] Searching 93535 Lancaster (45.2 mi)
+[11:09:11] Problem on 93535: Search for 93535 did not return a result list
+[11:10:31] Searching 93535 Lancaster (45.2 mi) attempt 2
+[11:11:19] Problem on 93535: Search for 93535 did not return a result list
+[11:14:28] Searching 93535 Lancaster (45.2 mi) attempt 3
+[11:15:16] Problem on 93535: Search for 93535 did not return a result list
+[11:15:16] Deferring 93535 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:15:18] Pausing before 93042 so this does not look like a rapid crawl
+[11:16:10] Searching 93042 Point Mugu Nawc (45.3 mi)
+[11:16:59] Problem on 93042: Search for 93042 did not return a result list
+[11:18:27] Searching 93042 Point Mugu Nawc (45.3 mi) attempt 2
+[11:19:16] Problem on 93042: Search for 93042 did not return a result list
+[11:23:07] Searching 93042 Point Mugu Nawc (45.3 mi) attempt 3
+[11:23:57] Problem on 93042: Search for 93042 did not return a result list
+[11:23:57] Deferring 93042 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:23:59] Pausing before 91739 so this does not look like a rapid crawl
+[11:25:10] Searching 91739 Rancho Cucamonga (46.0 mi)
+[11:25:57] Problem on 91739: Search for 91739 did not return a result list
+[11:27:22] Searching 91739 Rancho Cucamonga (46.0 mi) attempt 2
+[11:28:09] Problem on 91739: Search for 91739 did not return a result list
+[11:32:02] Searching 91739 Rancho Cucamonga (46.0 mi) attempt 3
+[11:32:49] Problem on 91739: Search for 91739 did not return a result list
+[11:32:49] Deferring 91739 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:32:51] Pausing before 92329 so this does not look like a rapid crawl
+[11:34:07] Searching 92329 Phelan (46.3 mi)
+[11:34:54] Problem on 92329: Search for 92329 did not return a result list
+[11:36:01] Searching 92329 Phelan (46.3 mi) attempt 2
+[11:36:48] Problem on 92329: Search for 92329 did not return a result list
+[11:40:03] Searching 92329 Phelan (46.3 mi) attempt 3
+[11:40:50] Problem on 92329: Search for 92329 did not return a result list
+[11:40:50] Deferring 92329 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:40:51] Pausing before 92358 so this does not look like a rapid crawl
+[11:42:15] Searching 92358 Lytle Creek (46.3 mi)
+[11:43:02] Problem on 92358: Search for 92358 did not return a result list
+[11:44:31] Searching 92358 Lytle Creek (46.3 mi) attempt 2
+[11:45:19] Problem on 92358: Search for 92358 did not return a result list
+[11:48:27] Searching 92358 Lytle Creek (46.3 mi) attempt 3
+[11:49:14] Problem on 92358: Search for 92358 did not return a result list
+[11:49:15] Deferring 92358 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:49:17] Pausing before 92882 so this does not look like a rapid crawl
+[11:50:33] Searching 92882 Corona (47.1 mi)
+[11:51:20] Problem on 92882: Search for 92882 did not return a result list
+[11:52:41] Searching 92882 Corona (47.1 mi) attempt 2
+[11:53:28] Problem on 92882: Search for 92882 did not return a result list
+[11:56:31] Searching 92882 Corona (47.1 mi) attempt 3
+[11:57:18] Problem on 92882: Search for 92882 did not return a result list
+[11:57:18] Deferring 92882 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[11:57:20] Pausing before 92860 so this does not look like a rapid crawl
+[11:58:39] Searching 92860 Norco (47.3 mi)
+[11:59:26] Problem on 92860: Search for 92860 did not return a result list
+[12:00:56] Searching 92860 Norco (47.3 mi) attempt 2
+[12:01:43] Problem on 92860: Search for 92860 did not return a result list
+[12:05:39] Searching 92860 Norco (47.3 mi) attempt 3
+[12:06:27] Problem on 92860: Search for 92860 did not return a result list
+[12:06:27] Deferring 92860 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[12:06:28] Pausing before 91752 so this does not look like a rapid crawl
+[12:07:32] Searching 91752 Mira Loma (47.4 mi)
+[12:08:06] 91752 | 1 - 1 of 1 | +0 new | 399 unique
+[12:08:19] Pausing before 93031 so this does not look like a rapid crawl
+[12:09:23] Searching 93031 Oxnard (47.4 mi)
+[12:10:00] 93031 | 1 - 1 of 1 | +1 new | 400 unique
+[12:10:15] Pausing before 92618 so this does not look like a rapid crawl
+[12:11:10] Searching 92618 Irvine (47.8 mi)
+[12:11:45] 92618 | 1 - 2 of 2 | +2 new | 402 unique
+[12:11:58] Pausing before 93560 so this does not look like a rapid crawl
+[12:12:56] Searching 93560 Rosamond (48.0 mi)
+[12:13:45] Problem on 93560: Search for 93560 did not return a result list
+[12:15:03] Searching 93560 Rosamond (48.0 mi) attempt 2
+[12:15:52] Problem on 93560: Search for 93560 did not return a result list
+[12:19:44] Searching 93560 Rosamond (48.0 mi) attempt 3
+[12:20:33] Problem on 93560: Search for 93560 did not return a result list
+[12:20:33] Deferring 93560 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[12:20:35] Pausing before 92603 so this does not look like a rapid crawl
+[12:21:37] Searching 92603 Irvine (48.5 mi)
+[12:22:12] 92603 | 1 - 5 of 6 | +0 new | 402 unique
+[12:22:24] 92603 | 6 - 6 of 6 | +0 new | 402 unique
+[12:22:39] Pausing before 93033 so this does not look like a rapid crawl
+[12:24:03] Searching 93033 Oxnard (48.5 mi)
+[12:24:38] 93033 | 1 - 1 of 1 | +0 new | 402 unique
+[12:24:47] Pausing before 93004 so this does not look like a rapid crawl
+[12:25:49] Searching 93004 Ventura (48.7 mi)
+[12:26:36] Problem on 93004: Search for 93004 did not return a result list
+[12:27:43] Searching 93004 Ventura (48.7 mi) attempt 2
+[12:28:32] Problem on 93004: Search for 93004 did not return a result list
+[12:32:17] Searching 93004 Ventura (48.7 mi) attempt 3
+[12:33:06] Problem on 93004: Search for 93004 did not return a result list
+[12:33:06] Deferring 93004 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[12:33:08] Pausing before 93009 so this does not look like a rapid crawl
+[12:34:18] Searching 93009 Ventura (48.7 mi)
+[12:35:07] Problem on 93009: Search for 93009 did not return a result list
+[12:36:10] Searching 93009 Ventura (48.7 mi) attempt 2
+[12:36:59] Problem on 93009: Search for 93009 did not return a result list
+[12:40:39] Searching 93009 Ventura (48.7 mi) attempt 3
+[12:41:28] Problem on 93009: Search for 93009 did not return a result list
+[12:41:28] Deferring 93009 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[12:41:30] Pausing before 92337 so this does not look like a rapid crawl
+[12:42:38] Searching 92337 Fontana (49.5 mi)
+[12:43:25] Problem on 92337: Search for 92337 did not return a result list
+[12:44:42] Searching 92337 Fontana (49.5 mi) attempt 2
+[12:45:29] Problem on 92337: Search for 92337 did not return a result list
+[12:49:23] Searching 92337 Fontana (49.5 mi) attempt 3
+[12:50:10] Problem on 92337: Search for 92337 did not return a result list
+[12:50:11] Deferring 92337 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[12:50:13] Master CSV updated: C:\Users\arthu\cdi-scraper\exports\cdi-agents.csv
+[12:50:13] Some ZIPs failed and remain queued for a later retry.
+
+> scrape
+> node --experimental-sqlite --disable-warning=ExperimentalWarning --import tsx src/scrape.ts
+
+[12:55:15] Grid has 128 ZIP codes within 50 miles of 91506. 47 still need a search.
+[12:55:17] Opened installed Chrome with a saved local profile
+[12:55:19] Searching 90262 Lynwood (18.5 mi)
+[12:56:06] Problem on 90262: Search for 90262 did not return a result list
+[12:57:18] Searching 90262 Lynwood (18.5 mi) attempt 2
+[12:58:05] Problem on 90262: Search for 90262 did not return a result list
+[13:01:34] Searching 90262 Lynwood (18.5 mi) attempt 3
+[13:02:21] Problem on 90262: Search for 90262 did not return a result list
+[13:02:21] Deferring 90262 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[13:02:23] Pausing before 90220 so this does not look like a rapid crawl
+[13:03:09] Searching 90220 Compton (21.1 mi)
+[13:03:56] Problem on 90220: Search for 90220 did not return a result list
+[13:05:13] Searching 90220 Compton (21.1 mi) attempt 2
+[13:06:00] Problem on 90220: Search for 90220 did not return a result list
+[13:09:56] Searching 90220 Compton (21.1 mi) attempt 3
+[13:10:43] Problem on 90220: Search for 90220 did not return a result list
+[13:10:43] Deferring 90220 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[13:10:45] Pausing before 93550 so this does not look like a rapid crawl
+[13:11:33] Searching 93550 Palmdale (21.3 mi)
+[13:12:19] Problem on 93550: Search for 93550 did not return a result list
+[13:13:32] Searching 93550 Palmdale (21.3 mi) attempt 2
+[13:14:19] Problem on 93550: Search for 93550 did not return a result list
+[13:17:50] Searching 93550 Palmdale (21.3 mi) attempt 3
+[13:18:38] Problem on 93550: Search for 93550 did not return a result list
+[13:18:38] Deferring 93550 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[13:18:40] Pausing before 91797 so this does not look like a rapid crawl
+[13:19:56] Searching 91797 Pomona (21.7 mi)
+[13:21:14] Problem on 91797: Search for 91797 did not return a result list
+[13:22:36] Searching 91797 Pomona (21.7 mi) attempt 2
+[13:23:56] Problem on 91797: Search for 91797 did not return a result list
+[13:27:51] Searching 91797 Pomona (21.7 mi) attempt 3
+[13:29:10] Problem on 91797: Search for 91797 did not return a result list
+[13:29:11] Deferring 91797 after 3 failures. Continuing other ZIPs; saved agents are preserved.
+[13:29:13] Pausing before 90706 so this does not look like a rapid crawl
+[13:30:15] Searching 90706 Bellflower (22.7 mi)
+[13:31:03] Problem on 90706: Search for 90706 did not return a result list
+[13:31:04] Stopping after the current page is saved. Press Ctrl+C again to force quit.
